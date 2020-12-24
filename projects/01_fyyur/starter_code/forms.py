@@ -217,4 +217,10 @@ class ArtistForm(Form):
         'facebook_link', validators=[URL()]
     )
 
+class SearchVenue(Form):
+    search_venue = StringField('search_term', validators=[DataRequired()])
+
+class SearchArtist(Form):
+    search_artist = StringField('search_term', validators=[DataRequired()])
+
 # TODO IMPLEMENT NEW ARTIST FORM AND NEW SHOW FORM
