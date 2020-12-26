@@ -116,6 +116,20 @@ class VenueForm(Form):
     facebook_link = StringField(
         'facebook_link', validators=[URL()]
     )
+    website = StringField(
+        'website', validators=[URL()]
+    )
+    seeking_talent = SelectField(
+        'seeking_talent', validators=[DataRequired()],
+        choices=[
+            ('True', 'True'),
+            ('False', 'False'),
+        ]
+    )
+    seeking_description = StringField(
+        'seeking_description', validators=[DataRequired()]
+    )
+
 
 class ArtistForm(Form):
     name = StringField(
@@ -124,9 +138,11 @@ class ArtistForm(Form):
     city = StringField(
         'city', validators=[DataRequired()]
     )
+
+ 
     state = SelectField(
-        'state', validators=[DataRequired()],
-        choices=[
+        'state', validators=[DataRequired()], 
+         choices=[
             ('AL', 'AL'),
             ('AK', 'AK'),
             ('AZ', 'AZ'),
@@ -190,7 +206,7 @@ class ArtistForm(Form):
     genres = SelectMultipleField(
         # TODO implement enum restriction
         'genres', validators=[DataRequired()],
-        choices=[
+         choices=[
             ('Alternative', 'Alternative'),
             ('Blues', 'Blues'),
             ('Classical', 'Classical'),
@@ -215,6 +231,19 @@ class ArtistForm(Form):
     facebook_link = StringField(
         # TODO implement enum restriction
         'facebook_link', validators=[URL()]
+    )
+    website = StringField(
+        'website', validators=[URL()]
+    )
+    seeking_venue = SelectField(
+        'seeking_venue', validators=[DataRequired()],
+        choices=[
+            ('True', 'True'),
+            ('False', 'False'),
+        ]
+    )
+    seeking_description = StringField(
+        'seeking_description', validators=[DataRequired()]
     )
 
 class SearchVenue(Form):
